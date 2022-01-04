@@ -23,28 +23,17 @@ class Jemaat extends CI_Controller {
 				);
 
 				$client = curl_init($api_url);
-
 				curl_setopt($client, CURLOPT_POST, true);
-
 				curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-
 				curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
 				$response = curl_exec($client);
-
 				curl_close($client);
-
 				echo $response;
 
-
-
-
 			}
-
 			if($data_action == "Edit")
 			{
 				$api_url = "http://localhost/restclient/api/update";
-
 				$form_data = array(
 					'nama_lengkap'			=>	$this->input->post('nama_lengkap'),
 					'tempat_lahir'			=>	$this->input->post('tempat_lahir'),
@@ -53,63 +42,33 @@ class Jemaat extends CI_Controller {
 					'alamat'			=>	$this->input->post('alamat'),
 					'id_jemaat'			=>	$this->input->post('id_jemaat')
 				);
-
 				$client = curl_init($api_url);
-
 				curl_setopt($client, CURLOPT_POST, true);
-
 				curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-
 				curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
 				$response = curl_exec($client);
-
 				curl_close($client);
-
 				echo $response;
-
-
-
-
-
-
-
 			}
 
 			if($data_action == "fetch_single")
 			{
 				$api_url = "http://localhost/restclient/api/fetch_single";
-
 				$form_data = array(
 					'id_jemaat'		=>	$this->input->post('id_jemaat')
 				);
-
 				$client = curl_init($api_url);
-
 				curl_setopt($client, CURLOPT_POST, true);
-
 				curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-
 				curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
 				$response = curl_exec($client);
-
 				curl_close($client);
-
 				echo $response;
-
-
-
-
-
-
 			}
 
 			if($data_action == "Insert")
 			{
 				$api_url = "http://localhost/restclient/api/insert";
-			
-
 				$form_data = array(
 					'nama_lengkap'			=>	$this->input->post('nama_lengkap'),
 					'tempat_lahir'			=>	$this->input->post('tempat_lahir'),
@@ -119,42 +78,23 @@ class Jemaat extends CI_Controller {
 				);
 
 				$client = curl_init($api_url);
-
 				curl_setopt($client, CURLOPT_POST, true);
-
 				curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-
 				curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
 				$response = curl_exec($client);
-
 				curl_close($client);
-
 				echo $response;
-
-
 			}
-
-
-
-
 
 			if($data_action == "fetch_all")
 			{
 				$api_url = "http://localhost/restclient/api";
-
 				$client = curl_init($api_url);
-
 				curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
 				$response = curl_exec($client);
-
 				curl_close($client);
-
 				$result = json_decode($response);
-
 				$output = '';
-
 				if(count($result) > 0)
 				{
 					foreach($result as $row)
@@ -166,8 +106,8 @@ class Jemaat extends CI_Controller {
 							<td>'.$row->tanggal_lahir.'</td>
 							<td>'.$row->jenis_kelamin.'</td>
 							<td>'.$row->alamat.'</td>
-							<td><butto type="button" name="edit" class="btn btn-warning btn-xs edit" id="'.$row->id_jemaat.'">Edit</button></td>
-							<td><button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row->id_jemaat.'">Delete</button></td>
+							<td><butto type="button" name="edit" class="btn btn-info btn-xs edit" id="'.$row->id_jemaat.'">Edit Data</button></td>
+							<td><button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row->id_jemaat.'">Hapus Data</button></td>
 						</tr>
 
 						';
@@ -186,7 +126,5 @@ class Jemaat extends CI_Controller {
 			}
 		}
 	}
-	
 }
-
 ?>

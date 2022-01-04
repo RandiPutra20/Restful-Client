@@ -8,6 +8,13 @@
     
 </head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h3 class="navbar-text">Data Gereja</h3>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <br />
         <br />
@@ -18,7 +25,7 @@
                         <h3 class="panel-title">Daftar Jemaat Gereja</h3>
                     </div>
                     <div class="col-md-6" align="right">
-                        <button type="button" id="add_button" class="btn btn-info btn-xs">Add</button>
+                        <button type="button" id="add_button" class="btn btn-success btn-xs">Tambah Data Jemaat</button>
                     </div>
                 </div>
             </div>
@@ -33,7 +40,7 @@
                             <th>Jenis Kelamin</th>
                             <th>Alamat</th>
                             <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Hapus</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -185,7 +192,7 @@ $(document).ready(function(){
                 {
                     if(data.success)
                     {
-                        $('#success_message').html('<div class="alert alert-success">Data Sudah Dihapus</div>');
+                        $('#success_message').html('<div class="alert alert-danger">Data Sudah Dihapus</div>');
                         fetch_data();
                     }
                 }
